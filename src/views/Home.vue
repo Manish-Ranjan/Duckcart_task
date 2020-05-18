@@ -1,52 +1,71 @@
 <template>
-  <v-container class="d-flex flex-wrap mx-2 pa-2">
-    <v-card height="20%" width="60%">
-      <v-list three-line class="mx-auto">
-        <template v-for="item in items">
-          <v-list-item :key="item.title">
-            <v-list-item-avatar class="profile" size="100">
-              <v-img :src="item.avatar"></v-img>
-            </v-list-item-avatar>
+  <v-container id="user-profile" fluid tag="section">
+    <v-row justify="center">
+      <v-col cols="12" md="6">
+        <v-card flat>
+          <v-list three-line class="mx-auto">
+            <template v-for="item in items">
+              <v-list-item :key="item.title">
+                <v-list-item-avatar class="profile" size="100">
+                  <v-img :src="item.avatar"></v-img>
+                </v-list-item-avatar>
 
-            <v-list-item-content>
-              <v-list-item-title class="title" v-html="item.title"></v-list-item-title>
-              <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
-      </v-list>
-      <v-toolbar color="white">
-        <template v-slot:extension>
-          <v-tabs fixed-tabs v-model="tab">
-            <v-tabs-slider color="blue"></v-tabs-slider>
+                <v-list-item-content>
+                  <v-list-item-title class="title" v-html="item.title"></v-list-item-title>
+                  <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-list>
+          <v-toolbar color="white">
+            <template v-slot:extension>
+              <v-tabs light fixed-tabs v-model="tab">
+                <v-tabs-slider color="blue"></v-tabs-slider>
 
-            <v-tab v-for="(tab1,item) in tabs" :key="item">{{ tab1 }}</v-tab>
-          </v-tabs>
-        </template>
-      </v-toolbar>
+                <v-tab v-for="(tab1,item) in tabs" :key="item">{{ tab1 }}</v-tab>
+              </v-tabs>
+            </template>
+          </v-toolbar>
 
-      <v-tabs-items v-model="tab">
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item>
-          <Information />
-          <Experience />
-          <Education />
-          <Skills />
-        </v-tab-item>
-      </v-tabs-items>
-    </v-card>
-
-    <v-col class="d-flex flex-wrap">
-      <v-row>
-        <Evaluation />
-      </v-row>
-    </v-col>
-    <TeamNotes />
-    <Tasks />
+          <v-tabs-items v-model="tab">
+            <v-tab-item>
+              <v-card flat>
+                <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
+              </v-card>
+            </v-tab-item>
+            <v-tab-item>
+              <v-col cols="15">
+                <Information />
+              </v-col>
+              <v-col cols="15">
+                <Experience />
+              </v-col>
+              <v-row class="mt-12" justify>
+                <v-col cols="12" md="6">
+                  <Education />
+                </v-col>
+                <v-col cols="12" md="6">
+                  <Skills />
+                </v-col>
+              </v-row>
+            </v-tab-item>
+          </v-tabs-items>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="5">
+        <v-row class="mt-n12" justify>
+          <v-col>
+            <Evaluation />
+          </v-col>
+          <v-row justify>
+            <TeamNotes />
+          </v-row>
+          <v-row>
+            <Tasks />
+          </v-row>
+        </v-row>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 <script>
