@@ -9,7 +9,7 @@
           <v-icon>event_note</v-icon>
           <v-content class="blue--text">Schedule</v-content>
         </v-btn>
-        <v-spacer></v-spacer>
+
         <v-btn x-small rounded text color="light" v-on="on">
           <v-icon>share</v-icon>
         </v-btn>
